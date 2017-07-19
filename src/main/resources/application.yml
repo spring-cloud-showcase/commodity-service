@@ -1,5 +1,13 @@
 spring:
   application.name: commodity-service
-  cloud.config:
-    uri: http://localhost:8888
 
+---
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+---
+spring.cloud.config:
+  discovery:
+    enabled: true
+    serviceId: config-server
+
+spring.sleuth.sampler.percentage: 1
